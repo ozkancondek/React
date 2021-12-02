@@ -1,0 +1,13 @@
+components consust of threee way
+
+-function
+-class
+-hooks
+
+
+1-Create a component js file like Navy.js
+2-creace rcc first
+3-write your page structure
+4-go back to app.js 
+5-import Navy
+6-add <Navy></Navy> in return side 
