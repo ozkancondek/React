@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+/* const myelement = <h1>I Love JSX!</h1>; 
+ const myelement = <h1>React is {5 + 5} times better with JSX</h1>; 
+  const myelement = <h1 className="myclass">Hello World</h1>;
+
+ReactDOM.render(myelement, document.getElementById("root")); */
+
+/* const myelement = React.createElement("h1", {}, "I do not use JSX!");
+
+ReactDOM.render(myelement, document.getElementById("root"));
+ */
+
 reportWebVitals();
