@@ -1,89 +1,105 @@
-import "./App.css";
-
 import React, { Component } from "react";
-import ChategoryList from "./ChategoryList";
-import Navy from "./Navy";
+import Navi from "./Navi";
+import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
 import { Container, Row, Col } from "reactstrap";
-import FreeLine from "./FreeLine";
-
-/* change it to calass component first to data transfer between components*/
-
-//I want to carry   showCategory() function to App.js
+import alertify from "alertifyjs";
+import { Route, Switch } from "react-router-dom";
+import NotFound from "./NotFound";
+import CartList from "./CartList";
+import FormDemo1 from "./FormDemo1";
+import FormDemo2 from "./FormDemo2";
 
 export default class App extends Component {
-  state = { currentCategory: "" };
-  changeCategory = (e) => {
-    this.setState({ currentCategory: e.categoryName });
+  state = { currentCategory: "", products: [], cart: [] };
+
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  changeCategory = (category) => {
+    this.setState({ currentCategory: category.categoryName });
+    this.getProducts(category.id);
   };
+
+  getProducts = (categoryId) => {
+    let url = "http://localhost:3000/products";
+    if (categoryId) {
+      url += "?categoryId=" + categoryId;
+    }
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => this.setState({ products: data }));
+  };
+
+  addToCart = (product) => {
+    let newCart = this.state.cart;
+    var addedItem = newCart.find((c) => c.product.id === product.id);
+    if (addedItem) {
+      addedItem.quantity += 1;
+    } else {
+      newCart.push({ product: product, quantity: 1 });
+    }
+
+    this.setState({ cart: newCart });
+    alertify.success(product.productName + " added to cart!");
+  };
+
+  removeFromCart = (product) => {
+    let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
+    this.setState({ cart: newCart });
+    alertify.error(product.productName + " removed from cart!");
+  };
+
   render() {
-    let prductInfo = { title: "Product List", second: "second Line" };
-    let categoryInfo = { title: "Category List" };
+    let productInfo = { title: "ProductList" };
+    let categoryInfo = { title: "CategoryList" };
     return (
-      // jsx
-      //this div here is not exactly like in html. Its jsx
-      <div className="App">
+      <div>
         <Container>
-          <Row>
-            <Navy></Navy> {/* add navy to here  */}
-          </Row>
+          <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
           <Row>
             <Col xs="3">
-              {" "}
-              <ChategoryList
+              <CategoryList
                 currentCategory={this.state.currentCategory}
                 changeCategory={this.changeCategory}
                 info={categoryInfo}
-              ></ChategoryList>
+              />
             </Col>
             <Col xs="9">
-              {" "}
-              <ProductList
-                currentCategory={this.state.currentCategory}
-                info={prductInfo}
-              ></ProductList>
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <ProductList
+                      {...props}
+                      products={this.state.products}
+                      addToCart={this.addToCart}
+                      currentCategory={this.state.currentCategory}
+                      info={productInfo}
+                    />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/cart"
+                  render={(props) => (
+                    <CartList
+                      {...props}
+                      cart={this.state.cart}
+                      removeFromCart={this.removeFromCart}
+                    />
+                  )}
+                />
+                <Route path="/form1" component={FormDemo1} />
+                <Route path="/form2" component={FormDemo2} />
+                <Route component={NotFound} />
+              </Switch>
             </Col>
-          </Row>
-          <Row>
-            <FreeLine />
           </Row>
         </Container>
       </div>
-      // this is not allowed because it needs to contain container. <h3>Try Line</h3>
     );
   }
 }
-
-//this is the first version with function component
-
-// function App() {
-//   let prductInfo = { title: "Product List", second: "second Line" };
-//   let categoryInfo = { title: "Category List" };
-//   return (
-//     // jsx
-//     //this div here is not exactly like in html. Its jsx
-//     <div className="App">
-//       <Container>
-//         <Row>
-//           <Navy></Navy> {/* add navy to here  */}
-//         </Row>
-//         <Row>
-//           <Col xs="3">
-//             {" "}
-//             <ChategoryList info={categoryInfo}></ChategoryList>
-//           </Col>
-//           <Col xs="9">
-//             {" "}
-//             <ProductList info={prductInfo}></ProductList>
-//           </Col>
-//         </Row>
-//         <Row>
-//           <FreeLine />
-//         </Row>
-//       </Container>
-//     </div>
-//     // this is not allowed because it needs to contain container. <h3>Try Line</h3>
-//   );
-// }
-
-// export default App;
