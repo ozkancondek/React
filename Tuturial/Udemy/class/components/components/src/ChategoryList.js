@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 export default class ChategoryList extends Component {
+  /*  constructor(props) {
+    super(props);
+  }  => i dont have to write this code block 
+  */
   render() {
     return (
       <div>
-        <h3> Chategory List</h3>
+        <h3>{this.props.info.title}</h3>
         <ListGroup flush>
           <ListGroupItem disabled href="#" tag="a">
             Cras justo odio

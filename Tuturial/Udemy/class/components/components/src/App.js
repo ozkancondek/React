@@ -3,8 +3,11 @@ import ChategoryList from "./ChategoryList";
 import Navy from "./Navy";
 import ProductList from "./ProductList";
 import { Container, Row, Col } from "reactstrap";
+import FreeLine from "./FreeLine";
 
 function App() {
+  let prductInfo = { title: "Product List", second: "second Line" };
+  let categoryInfo = { title: "Category List" };
   return (
     // jsx
     //this div here is not exactly like in html. Its jsx
@@ -16,12 +19,15 @@ function App() {
         <Row>
           <Col xs="3">
             {" "}
-            <ChategoryList></ChategoryList>
+            <ChategoryList info={categoryInfo}></ChategoryList>
           </Col>
           <Col xs="9">
             {" "}
-            <ProductList></ProductList>
+            <ProductList info={prductInfo}></ProductList>
           </Col>
+        </Row>
+        <Row>
+          <FreeLine />
         </Row>
       </Container>
     </div>
