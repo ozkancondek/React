@@ -6,11 +6,30 @@ export default class ChategoryList extends Component {
     super(props);
   }  => i dont have to write this code block 
   */
+
+  /*  constructor(props) {
+    super(props);
+    this. */ state = {
+    categories: [
+      { categoryId: 1, categoryName: "Beverages" },
+      { categoryId: 2, categoryName: "Condiments" },
+    ],
+  };
+  /*  } */
   render() {
     return (
       <div>
         <h3>{this.props.info.title}</h3>
-        <ListGroup flush>
+
+        <ListGroup>
+          {this.state.categories.map((category) => (
+            <ListGroupItem key={category.categoryId}>
+              {category.categoryName}
+            </ListGroupItem>
+          ))}
+        </ListGroup>
+
+        {/* <ListGroup flush>
           <ListGroupItem disabled href="#" tag="a">
             Cras justo odio
           </ListGroupItem>
@@ -26,7 +45,7 @@ export default class ChategoryList extends Component {
           <ListGroupItem href="#" tag="a">
             Vestibulum at eros
           </ListGroupItem>
-        </ListGroup>
+        </ListGroup> */}
       </div>
     );
   }

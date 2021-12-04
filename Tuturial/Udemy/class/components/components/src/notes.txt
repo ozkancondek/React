@@ -11,3 +11,13 @@ components consust of threee way
 4-go back to app.js 
 5-import Navy
 6-add <Navy></Navy> in return side 
+
+
+Props: Data, which is carried one component to another
+-it can be function or event or variable
+
+State: data of spesific component
+-its a single data and completely belong the spesific component
+
+
+
