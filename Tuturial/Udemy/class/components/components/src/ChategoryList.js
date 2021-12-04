@@ -14,6 +14,10 @@ export default class ChategoryList extends Component {
       { categoryId: 1, categoryName: "Beverages" },
       { categoryId: 2, categoryName: "Condiments" },
     ],
+    currentCategory: "",
+  };
+  showCategory = (e) => {
+    this.setState({ currentCategory: e.categoryName });
   };
   /*  } */
   render() {
@@ -23,11 +27,15 @@ export default class ChategoryList extends Component {
 
         <ListGroup>
           {this.state.categories.map((category) => (
-            <ListGroupItem key={category.categoryId}>
+            <ListGroupItem
+              onClick={() => this.showCategory(category)}
+              key={category.categoryId}
+            >
               {category.categoryName}
             </ListGroupItem>
           ))}
         </ListGroup>
+        <h2>{this.state.currentCategory}</h2>
 
         {/* <ListGroup flush>
           <ListGroupItem disabled href="#" tag="a">
