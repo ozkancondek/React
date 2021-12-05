@@ -3,3 +3,4 @@ export const Header = () => {
 };
 
 //export {Header};
+//another way of exporting file
