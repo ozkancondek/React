@@ -4,6 +4,7 @@ import { Inline } from "./components/inline/Inline.js";
 import Objectinline from "./components/inline/Objectinline";
 import { Stylesheet } from "./components/inline/Stylesheet";
 import StyleSheet2 from "./components/inline/regular-style/StyleSheet2";
+import Sassy from "./components/inline/sassy/Sassy";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Objectinline />
       <Stylesheet />
       <StyleSheet2 cond={false} pcolor="primary" />
+      <Sassy />
     </div>
   );
 }
