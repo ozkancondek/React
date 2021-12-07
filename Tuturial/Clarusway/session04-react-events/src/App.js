@@ -2,6 +2,7 @@ import "./App.css";
 import { AddEvent } from "./components/addEventClass/AddEvent";
 import AddEventClass from "./components/addEventClass/AddEventClass";
 import EventBind from "./components/eventBinding/EventBind";
+import Form from "./components/form/Form";
 import MouseEvents from "./components/mouseEvents/MouseEvents";
 
 const alertNowProp = () => {
@@ -15,7 +16,8 @@ function App() {
       <AddEvent sendFunc={alertNowProp} />
       <AddEventClass />
       {/*   <EventBind /> */}
-      <MouseEvents />
+      {/* <MouseEvents /> */}
+      <Form />
     </div>
   );
 }
