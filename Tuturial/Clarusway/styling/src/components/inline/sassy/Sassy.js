@@ -1,4 +1,4 @@
-import "../../sass/style.scss";
+import "../../../sass/style.scss";
 const Sassy = () => {
   return (
     <div className="container">
