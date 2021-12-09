@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 const FunctionalComponent = () => {
+  let oz = 0
+
   const [count, setCount] = useState(0)
   const [age, setAge] = useState(4)
   const [user, setUser] = useState({ name: 'ozkan', age: 24, email: 'ooo@ooo' })
+  useEffect(() => {
+    count !== 0 && alert(`new notification, total: ${count}`)
+    /*useEffect works last */
+    /*Works in every render without dependency array */
+    console.log('use effect')
+  }, [
+    count,
+    age
+  ]) /* now just works first render of component.if i give in it variable, works in every update of variable */
   const increase = () => {
     setCount(count + 1)
   }
@@ -23,6 +34,8 @@ const FunctionalComponent = () => {
       <button onClick={userUpdate}>Uptade Name</button>
       <p>age:{user.age}</p>
       <p>email:{user.email}</p>
+      <p>Variable:{oz} That will not be rendered and updated</p>
+      <button onClick={() => oz + 1}>Uptade Variable</button>
     </div>
   )
 }

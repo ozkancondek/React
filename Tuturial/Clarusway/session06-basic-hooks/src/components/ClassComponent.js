@@ -8,6 +8,14 @@ class ClassComponent extends React.Component {
   increase = () => {
     this.setState({ count: this.state.count + 1 })
   }
+
+  componentDidMount() {
+    /*first render situation. What do you want to in first render? */
+    console.log('Class Comp Mounted')
+  }
+  componentDidUpdate() {
+    console.log('Comp Updated')
+  }
   render() {
     return (
       <div className="class">
