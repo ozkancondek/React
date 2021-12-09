@@ -12,10 +12,14 @@ const FunctionalComponent = () => {
     /*useEffect works last */
     /*Works in every render without dependency array */
     console.log('use effect')
+    return () => {
+      console.log('Func Comp Unmouted')
+    }
   }, [
     count,
     age
   ]) /* now just works first render of component.if i give in it variable, works in every update of variable */
+
   const increase = () => {
     setCount(count + 1)
   }
