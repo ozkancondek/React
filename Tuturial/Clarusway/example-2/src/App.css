@@ -1,6 +1,15 @@
 .App {
   text-align: center;
 }
+.container {
+  border: 2px solid black;
+  margin: 15px;
+}
+
+.AppFavorite {
+  background-color: aqua;
+  text-align: center;
+}
 
 .App-logo {
   height: 40vmin;
