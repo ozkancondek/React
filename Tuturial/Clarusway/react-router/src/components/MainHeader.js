@@ -1,37 +1,25 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
-export const MainHeader = () => {
-  return (
-    <header>
-      <nav>
-        <ul style={{ listStyleType: "none" }}>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? "active" : "")}
-              to="/"
-            >
-              Welcome
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? "active" : "")}
-              to="/products"
-            >
-              Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? "active" : "")}
-              to="/productDetail"
-            >
-              Product Details
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
+const MainHeader = () => {
+    return (
+        <header>
+            <nav>
+                <ul style={{listStyleType:'none'}} >
+                    <li >
+                        <Link className={(navData)=>navData.isActive ? 'active' : ''} to='/welcome'>
+                            Welcome
+                        </Link>
+                    </li>
+                    <li>
+                        <NavLink className={(navData)=>navData.isActive && 'active' } to='/products'>
+                            Products
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    )
+}
+
+export default MainHeader

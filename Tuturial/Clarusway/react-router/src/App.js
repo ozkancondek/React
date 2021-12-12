@@ -1,21 +1,22 @@
-import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Welcome } from "./pages/Welcome";
-import { Products } from "./pages/Products";
-import { ProductDetail } from "./pages/ProductDetail";
-import { MainHeader } from "./components/MainHeader";
+import './App.css';
+import {Routes, Route, Navigate} from 'react-router-dom'
+import Welcome from './pages/Welcome';
+import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
+import MainHeader from './component/MainHeader';
 
 function App() {
   return (
     <div className="App">
-      <h1>Lesson: React Router </h1>
-      <MainHeader />
+      <MainHeader/>
       <main>
         <Routes>
-          <Route path="/" element={<Navigate to="/" />} /> {/*  home page */}
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="productDetail" element={<ProductDetail />} />
+          <Route path='/' element={ <Navigate to='/welcome' /> }/>
+          <Route path='/welcome/*' element={<Welcome/>}>
+            <Route path='new-user' element={<p>Welcome new user!</p>} />
+          </Route>
+          <Route path='/products' element={<Products/>}/>
+          <Route path='/products/:productId' element={<ProductDetail/>}/>
         </Routes>
       </main>
     </div>
