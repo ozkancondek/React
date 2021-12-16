@@ -1,4 +1,5 @@
 import "./App.css";
+import Buttons from "./components/material-ui/buttons/Buttons";
 import StyledComponents from "./components/styled-comp/StyledComponents";
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
     <>
       <div className="App">
         <header className="App-header">
-          <StyledComponents />
+          {/*   <StyledComponents /> */}
+          <Buttons />
         </header>
       </div>
     </>
