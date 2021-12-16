@@ -2,6 +2,7 @@ import "./App.css";
 import Buttons from "./components/material-ui/buttons/Buttons";
 import StyledComponents from "./components/styled-comp/StyledComponents";
 import CheckBoxComp from "./components/material-ui/checkbox/CheckBoxComp";
+import TextFieldComp from "./components/material-ui/text-field/TextFieldComp";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           {/*   <StyledComponents /> */}
           <Buttons />
           <CheckBoxComp />
+          <TextFieldComp />
         </header>
       </div>
     </>
