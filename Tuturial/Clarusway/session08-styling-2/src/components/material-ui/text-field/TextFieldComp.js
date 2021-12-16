@@ -1,5 +1,5 @@
-import { TextField } from '@mui/material';
-import React from 'react';
+import { TextField } from "@mui/material";
+import React from "react";
 
 const TextFieldComp = () => {
   return (
@@ -10,7 +10,7 @@ const TextFieldComp = () => {
         type="email"
         label="Email"
         placeholder="mui@mui.com"
-        error
+        /*  error */
         helperText="Incorrect Entry"
       />
     </div>
