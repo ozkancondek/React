@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export default styled.a`
   font-size: 1.2rem;
@@ -20,3 +20,6 @@ export default styled.a`
     font-size: 1rem;
   }
 `;
+
+/* 
+if wanna apply more than a css ican use css with import */

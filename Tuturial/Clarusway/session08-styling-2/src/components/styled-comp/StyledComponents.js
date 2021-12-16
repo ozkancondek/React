@@ -8,6 +8,12 @@ import Wrapper from "./wrapper/Wrapper";
 const StyledComponents = () => {
   return (
     <Wrapper bgColor="wheat">
+      <HeaderText>BlueBerry</HeaderText>
+      <HeaderText headerColor="purple">BlueBerry</HeaderText>
+      <Link secondary target="_blank" rel="noopener" href="#">
+        Learn Fullstack
+      </Link>
+      <ExtendedComp>Extended Link</ExtendedComp>
       <Button primary>Primary</Button> {/* send as props to Button */}
       <Button>Primary</Button>
     </Wrapper>
