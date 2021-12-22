@@ -15,7 +15,7 @@ export const Welcome = () => {
     <div style={style}>
       <h2>Welcome to our page</h2>
       <Header name="ozkan" />
-      <Button handleClick={handleClick} />
+      <Button name="about" backgroundColor="blue" handleClick={handleClick} />
     </div>
   );
 };

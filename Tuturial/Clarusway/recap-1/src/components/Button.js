@@ -1,11 +1,21 @@
 import React from "react";
 import { style } from "../style/Style";
-export const Button = ({ handleClick }) => {
+
+const btnStyle = {
+  borderRadius: "5px",
+  fontSize: "20px",
+};
+export const Button = ({ name, handleClick, backgroundColor }) => {
   return (
     <div style={style}>
       Button Component
       <br />
-      <button onClick={handleClick}>go to about</button>
+      <button
+        style={{ ...btnStyle, backgroundColor: backgroundColor }}
+        onClick={handleClick}
+      >
+        go to {name}
+      </button>
     </div>
   );
 };
