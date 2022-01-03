@@ -4,7 +4,7 @@ import todoReducer from "./reducer/todoReducer";
 
 const reducers = combineReducers({
   counterReducer: counterReducer,
-  // todoReducer: todoReducer,
+  todoReducer: todoReducer,
 });
 
 export const combineStore = () => {
