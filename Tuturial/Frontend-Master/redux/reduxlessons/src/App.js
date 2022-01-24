@@ -1,5 +1,6 @@
 import "./App.css";
 import { Counter } from "./Counter";
+
 import { Redux1 } from "./frontendmasterd/Redux1";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
       <header className="App-header">
         redux lessons
         {/* <Redux1></Redux1> */}
-        <Counter></Counter>
+        <Counter />
       </header>
     </div>
   );
